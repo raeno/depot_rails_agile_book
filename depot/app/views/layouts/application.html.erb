@@ -10,6 +10,10 @@
     <div id="banner">
       <%= image_tag "logo.png" %>
       <%= @page_title || "Bookshelf" %>
+
+      <span id="weekday">
+            <%= @datetime %>
+        </span>
     </div>
 
     <div id="columns">
@@ -20,6 +24,8 @@
           <li><a href="/news">News</a></li>
           <li><a href="/contact">Contact</a> </li>
         </ul>
+
+
       </div>
       <div id="main">
         <%= yield %>
