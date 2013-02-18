@@ -20,7 +20,6 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "product price must be positive" do
-
     product = new_product("test.jpg")
 
     product.price = -1
@@ -57,6 +56,16 @@ class ProductTest < ActiveSupport::TestCase
     assert !product.save
     assert_equal I18n.translate('activerecord.errors.messages.taken'), product.errors[:title].join("; ")
   end
+
+  test "product title must be greater than or equal to 10" do
+    product = new_product("test.jpg")
+    product.title = "test"
+
+    assert product.invalid?
+    assert_equal "is too short (minimum is 10 characters)", product.errors[:title].join("; ")
+  end
+
+
 
 
 end
