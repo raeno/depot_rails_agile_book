@@ -43,6 +43,8 @@ class LineItemsController < ApplicationController
     @cart = current_cart
     product = Product.find(params[:product_id])
 
+    reset_index_counter
+
     @line_item = @cart.line_items.build(product: product)
 
     respond_to do |format|

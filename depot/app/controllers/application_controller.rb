@@ -19,4 +19,9 @@ class ApplicationController < ActionController::Base
     counter
   end
 
+  def reset_index_counter
+    session[:counter] = 0
+  end
+
 end
+

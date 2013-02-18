@@ -22,4 +22,6 @@
     </div>
 <% end %>
 
-<span>Catalog viewed <%= @counter %> times</span>
+<% if @counter > 5 %>
+<span>Catalog viewed <%= pluralize(@counter,"time") %> </span>
+<% end %>
