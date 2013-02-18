@@ -1,4 +1,7 @@
 TODO.md
 
-* paused on 92 page of the book
-* next tasks: continue reading and implementing
+* stopped on 141 book page
+* next tasks:
+   ** make rubymine debugger work ( fix problem with ruby-debug-base19x gem )
+   ** fix problem with multiple same items in a cart
+   ** continue reading and implementation

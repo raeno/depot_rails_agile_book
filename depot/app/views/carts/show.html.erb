@@ -5,8 +5,9 @@
 <ul>
   <% @cart.line_items.each do |item| %>
     <li>
-      <%= item.product.title %>
+      <%= item.quantity %> &times; <%= item.product.title %>
     </li>
   <% end  %>
 </ul>
 
+                                                                              r

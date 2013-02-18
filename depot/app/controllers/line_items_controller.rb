@@ -43,9 +43,10 @@ class LineItemsController < ApplicationController
     @cart = current_cart
     product = Product.find(params[:product_id])
 
-    reset_index_counter
+    @line_item = @cart.add_product(product.id)
 
-    @line_item = @cart.line_items.build(product: product)
+    #reset index pageviews counter when user clicks on "Add to Cart"
+    reset_index_counter
 
     respond_to do |format|
       if @line_item.save
