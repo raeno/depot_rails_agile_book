@@ -10,4 +10,13 @@ class ApplicationController < ActionController::Base
     return cart
   end
 
+  def index_viewed
+    if session[:counter].nil?
+      session[:counter] = 0
+    end
+    counter = session[:counter] + 1
+    session[:counter] = counter
+    counter
+  end
+
 end

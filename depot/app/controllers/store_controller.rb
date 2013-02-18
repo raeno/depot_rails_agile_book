@@ -5,5 +5,7 @@ class StoreController < ApplicationController
     @products = Product.order(:title)
 
     @datetime = Time.now.to_s(:ru_datetime)
+
+    @counter = index_viewed
   end
 end
