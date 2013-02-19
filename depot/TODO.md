@@ -1,6 +1,11 @@
 TODO.md
 
-* stopped on 141 book page
+* stopped on 174 book page
 * next tasks:
-   ** fix problem with multiple same items in a cart
-   ** continue reading and implementation
+  ** add "+" and "-" buttons to items in a cart
+      *** first w/o ajax
+      *** then change to ajax
+      *** also add tests for this buttons
+  ** change cursor to hand for images in a product list
+  ** move forward on the book
+
