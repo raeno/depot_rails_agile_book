@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class CartsController < ApplicationController
   # GET /carts
   # GET /carts.json
@@ -13,13 +14,19 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
-    @cart = Cart.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @cart }
+    begin
+      @cart = Cart.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+        logger.error "Попытка доступа к несуществующей корзине #{params[:id]}"
+        redirect_to store_url, notice: "Несуществуюая корзина"
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @cart }
+      end
     end
   end
+
 
   # GET /carts/new
   # GET /carts/new.json
