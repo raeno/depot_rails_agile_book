@@ -7,9 +7,44 @@
     font: 120% bold;
   }
 
+  tr.total_line > td {
+    padding-top: 1em;
+  }
+
+  .items_quantity {
+    white-space: nowrap;
+
+    .dotted_link {
+      border-bottom: 1px dotted white;
+      font: 110%;
+      cursor: pointer;
+    }
+
+    .items-count-spinner {
+      z-index :5000;
+      background-color: white;
+      position: absolute;
+      display: none;
+      border: 1px solid #004e1f;
+
+
+      span {
+      color: black;
+      font: '120% bold';
+      }
+
+      .item-count {
+        width: 25px;
+        text-align: center;
+      }
+    }
+  }
+
   .item_price, .total_line {
     text-align: right;
   }
+
+
 
   .total_line .total_cell {
     font-weight: bold;

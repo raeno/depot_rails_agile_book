@@ -4,7 +4,20 @@
     <tr>
 <% end %>
 
-  <td> <%= line_item.quantity %> &times; </td>
   <td> <%= line_item.product.title %> </td>
+
+  <td class="items_quantity">
+    <span>&times; </span>
+    <span class="product-quantity" data-product-id="<%= line_item.product.id %>" class='dotted_link'><%= line_item.quantity %></span>
+
+    <!-- overlay -->
+    <div class='items-count-spinner'>
+      <span> + </span>
+      <input type='text' class='item-count' value=2>
+      <span> - </span>
+    </div>
+
+  </td>
+
   <td class="item_price"> <%= number_to_currency(line_item.total_price) %> </td>
 </tr>
