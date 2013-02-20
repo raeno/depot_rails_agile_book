@@ -6,6 +6,5 @@ TODO.md
       *** first w/o ajax
       *** then change to ajax
       *** also add tests for this buttons
-  ** change cursor to hand for images in a product list
   ** move forward on the book
 
