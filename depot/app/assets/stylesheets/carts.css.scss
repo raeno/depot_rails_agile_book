@@ -14,7 +14,7 @@
   .items_quantity {
     white-space: nowrap;
 
-    .dotted_link {
+    .product-quantity {
       border-bottom: 1px dotted white;
       font: 110%;
       cursor: pointer;
@@ -27,14 +27,18 @@
       display: none;
       border: 1px solid #004e1f;
 
+      .left-arrow, .right-arrow {
+        cursor: pointer;
+      }
 
       span {
-      color: black;
-      font: '120% bold';
+        color: black;
+        font: '120% bold';
+        text-align: center;
       }
 
       .item-count {
-        width: 25px;
+        width: 35px;
         text-align: center;
       }
     }
