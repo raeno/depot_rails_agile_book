@@ -1,0 +1,11 @@
+<% if @cart.line_items.empty? %>
+    $('#cart').hide();
+<% else %>
+
+    $('#cart').html("<%=j render @cart %>");
+
+    window.spinner.subscribe();
+
+    $('#current_item').css({'background-color':'#88ff88'}).
+            animate({'background-color': '#114411'},1000);
+<% end %>

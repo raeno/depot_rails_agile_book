@@ -2,9 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 class CountSpinner
-
   _count_spinner: null
-  _items_count: null
 
   constructor: ->
 
@@ -16,45 +14,71 @@ class CountSpinner
       product = $(this)
       event.stopPropagation();
 
-      me.show_spinner(product)
-      items_count_input =  me.update_input(product.text())
+
+      items_count_input = me.show_spinner(product)
 
       me.subscribe_to_left_arrow(product,items_count_input)
       me.subscribe_to_right_arrow(product,items_count_input)
 
-      position = product.position();
 
-      $('.items-count-spinner').css({
-                                    'top' : position.top - 5,
-                                    'left' : position.left - 25,})
   show_spinner: (current) ->
+    position = current.position()
+
     @_count_spinner =  current.parent().find('.items-count-spinner');
+
+    @_count_spinner.css({'top' : position.top - 5, 'left' : position.left - 25,})
+    @_count_spinner.attr('data-product-id',current.attr('data-product-id'))
+
     @_count_spinner.show();
 
+    @.update_input(current.text())
+
+  hide_spinner: ->
+    @_count_spinner.hide();
+
+
   update_input: (newValue) ->
-    items_count = @_count_spinner.find('.item-count');
+    items_count = @_count_spinner.find('.item-count')
     items_count.val(newValue);
     items_count.focus();
     items_count
 
   subscribe_to_left_arrow: (product,items_count_input) ->
+    me = @
     product.parent().find('.left-arrow').off('click').on('click', ->
       value = parseInt(items_count_input.val());
       if (value > 1)
         items_count_input.val(value - 1);
-      else
-        alert 'TODO: remove item from cart'
+
+      me.remove_item_from_cart(product.attr('data-product-id'))
+      me.hide_spinner();
+
     )
 
   subscribe_to_right_arrow:(product,items_count_input) ->
+    me = @
     product.parent().find('.right-arrow').off('click').on('click', ->
       value = parseInt(items_count_input.val());
-      if (value < 999)
-        items_count_input.val(value + 1);
-      else
-        alert 'TODO: show too_much_elements error'
+      items_count_input.val(value + 1);
+      me.add_item_to_cart(product.attr('data-product-id'))
+      me.hide_spinner();
     )
 
+  add_item_to_cart: (product_id) ->
+    $.ajax({
+      type: "POST",
+      url: '/line_items?product_id=' + product_id,
+      headers: {
+        Accept:"application/javascript"}
+      })
+
+  remove_item_from_cart: (product_id) ->
+    $.ajax({
+           type: "DELETE",
+           url: '/line_items/' + product_id,
+           headers: {
+           Accept:"application/javascript"}
+           })
 
 $ ->
       $('.store .entry > img').click ->
