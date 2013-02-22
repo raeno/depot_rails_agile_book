@@ -2,6 +2,11 @@ Product.delete_all
 Cart.delete_all
 LineItem.delete_all
 Order.delete_all
+PaymentType.delete_all
+
+["Check", "Credit card", "Purchase order"].each do |name|
+  PaymentType.create(:name => name)
+end
 
 Product.create(:title => 'Web Design for Developers',
   :description => 
@@ -40,3 +45,4 @@ Product.create(:title => 'Rails Test Prescriptions',
       </p>},
   :image_url => '/assets/rtp.jpg',
   :price => 43.75)
+
