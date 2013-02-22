@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  product_id: 1
-  cart_id: 1
+web_design:
+  product: web_design
+  cart: one
 
-two:
-  product_id: 1
-  cart_id: 1
+ruby:
+  product: ruby
+  cart: one

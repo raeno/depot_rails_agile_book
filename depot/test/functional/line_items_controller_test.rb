@@ -2,7 +2,7 @@ require 'test_helper'
 
 class LineItemsControllerTest < ActionController::TestCase
   setup do
-    @line_item = line_items(:one)
+    @line_item = line_items(:ruby)
   end
 
   test "should get index" do
@@ -31,7 +31,7 @@ class LineItemsControllerTest < ActionController::TestCase
 
     assert_response :success
     assert_select_jquery :html, '#cart' do
-      assert_select 'tr#current_item td:nth-child(2)', /Programming Ruby 1.9/
+      assert_select 'tr#current_item td:first-child', /Programming Ruby 1.9/
     end
   end
 
@@ -51,10 +51,12 @@ class LineItemsControllerTest < ActionController::TestCase
   end
 
   test "should destroy line_item" do
+=begin
     assert_difference('LineItem.count', -1) do
-      delete :destroy, id: @line_item
+      delete :destroy, id: products(:ruby).id
     end
-
     assert_redirected_to line_items_path
+=end
+  flunk "Problem with has_many relations, try to fix later"
   end
 end

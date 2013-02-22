@@ -1,18 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  title: MyString
-  description: MyText
-  image_url: MyString
-  price: 9.99
-
-two:
-  title: MyString
-  description: MyText
-  image_url: MyString
-  price: 9.99
+web_design:
+  id: 7
+  title: Web Design for Developers
+  description:  Web Design for Developers will show you how to make your  web-based application look professionally designed
+  image_url: /assets/wd4d.jpg
+  :price: 42.95
 
 ruby:
+  id: 8
   title: Programming Ruby 1.9
   description: Ruby is the fastest growing and most exciting dynamic language out of there.
   price: 49.50

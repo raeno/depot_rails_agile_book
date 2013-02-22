@@ -8,12 +8,11 @@ class CountSpinner
 
   subscribe: ->
     product_quantity = $('.product-quantity');
-    me = @
 
+    me = @
     product_quantity.click ->
       product = $(this)
       event.stopPropagation();
-
 
       items_count_input = me.show_spinner(product)
 

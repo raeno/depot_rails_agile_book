@@ -1,4 +1,8 @@
 Product.delete_all
+Cart.delete_all
+LineItem.delete_all
+Order.delete_all
+
 Product.create(:title => 'Web Design for Developers',
   :description => 
     %{<p>
