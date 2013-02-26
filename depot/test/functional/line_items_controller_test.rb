@@ -51,12 +51,12 @@ class LineItemsControllerTest < ActionController::TestCase
   end
 
   test "should destroy line_item" do
-=begin
+    session[:cart_id] = carts(:one)
     assert_difference('LineItem.count', -1) do
       delete :destroy, id: products(:ruby).id
     end
-    assert_redirected_to line_items_path
-=end
-  flunk "Problem with has_many relations, try to fix later"
+    assert_redirected_to store_url
+
+  #flunk "Problem with has_many relations, try to fix later"
   end
 end

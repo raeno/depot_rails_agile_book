@@ -1,0 +1,8 @@
+<h3>Your Megabook order shipped!</h3>
+
+<p>This message confirms than your recent order in our store had been already shipped</p>
+
+<table>
+  <tr><th colspan="2">Count</th><th>Desciption</th></tr>
+  <%=  render @order.line_items %>
+</table>

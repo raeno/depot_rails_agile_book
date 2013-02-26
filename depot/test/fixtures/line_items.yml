@@ -1,9 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-web_design:
-  product: web_design
-  cart: one
-
 ruby:
   product: ruby
+  cart: one
   order: one
