@@ -18,7 +18,7 @@ class ActiveSupport::TestCase
   end
 
   def setup
-    login_as :one if defined? session
+    login_as users(:one) if defined? session
   end
 
   # Add more helper methods to be used by all tests here...
