@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :password, :password_confirmation
+  attr_accessible :name, :password, :password_confirmation, :current_password
+  attr_accessor :current_password
+
   validates :name, presence: true, uniqueness: true
+  validates_presence_of :current_password, :on => :update
   has_secure_password
   after_destroy :ensure_an_admin_remains
   after_create :remove_temp_user_if_exists
@@ -19,6 +22,5 @@ class User < ActiveRecord::Base
       User.delete temp_user
     end
   end
-
 
 end

@@ -59,13 +59,19 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      if @user.update_attributes(params[:user])
-        format.html { redirect_to users_url, notice: "User #{@user.name} data was successfully updated" }
-        format.json { head :no_content }
+      if @user.authenticate(params[:user][:current_password])
+        if @user.update_attributes(params[:user])
+          format.html { redirect_to users_url, notice: "User #{@user.name} data was successfully updated" }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       else
-        format.html { render action: "edit" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        flash[:notice] = "Please provide valid current password"
+        format.html { redirect_to edit_user_path @user }
       end
+
     end
   end
 
@@ -85,5 +91,15 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url }
       format.json { head :no_content }
     end
+  end
+
+  def change_password
+    @user = User.find(params[:id])
+    if request.post?
+      if @user.change_password(params[:user])
+        flash[:notice] = "Your password has been changed"
+      end
+    end
+
   end
 end

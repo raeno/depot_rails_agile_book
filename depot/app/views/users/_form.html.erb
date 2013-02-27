@@ -1,4 +1,9 @@
 <div class="depot_form">
+
+<% if notice  %>
+  <p id ="notice"><%=  notice %></p>
+<% end %>
+
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -17,10 +22,20 @@
 
   <div>
     <%= f.label :name %><br />
+    <p><%= @user.password %></p>
     <%= f.text_field :name, size: 40 %>
   </div>
+
+  <% if @user.persisted? %>
+      <div id="old_password">
+        <%= f.label :current_password, 'Current password' %><br />
+        <%= f.password_field :current_password, size: 40 %>
+      </div>
+  <% end %>
+
+
   <div>
-    <%= f.label :password, 'Password' %><br />
+    <%= f.label :password, 'New password' %><br />
     <%= f.password_field :password, size: 40 %>
   </div>
 
