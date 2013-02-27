@@ -9,7 +9,7 @@
 <body class='<%= controller.controller_name %>'>
     <div id="banner">
       <%= image_tag "logo.png" %>
-      <%= @page_title || "Bookshelf" %>
+      <%= @page_title || t('.title') %>
 
       <span id="weekday">
             <%= @datetime %>
@@ -28,10 +28,10 @@
         <% end %>
 
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/faq">Questions</a> </li>
-          <li><a href="/news">News</a></li>
-          <li><a href="/contact">Contact</a> </li>
+          <li><a href="/"><%= t('.home') %></a></li>
+          <li><a href="/faq"><%= t('.questions') %></a> </li>
+          <li><a href="/news"><%=  t('.news') %></a></li>
+          <li><a href="/contact"><%= t('.contact') %></a> </li>
         </ul>
 
         <% if session[:user_id] %>
