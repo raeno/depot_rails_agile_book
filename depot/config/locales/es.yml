@@ -18,3 +18,12 @@ es:
         title: "Carrito de la Compra"
         empty: "Vaciar Carrito"
         checkout: "Comprar"
+
+  number:
+      currency:
+        format:
+          unit:       "$US"
+          precision:  2
+          separator:  ","
+          delimeter:  "."
+          format:     "%n&nbsp;%u"
