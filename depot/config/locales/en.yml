@@ -9,3 +9,13 @@ en:
       questions: "Questions"
       news: "News"
       contacts: "Contacts"
+
+  store:
+    index:
+      title_html: "Megabook store catalog"
+      add_html: "Add to Cart"
+  carts:
+    cart:
+      title: "Your Cart"
+      empty: "Empty Cart"
+      checkout: "Checkout"
