@@ -5,6 +5,7 @@ class UsersControllerTest < ActionController::TestCase
     @user = users(:one)
     @input_attributes = {
         name: "sam",
+        current_password:"secret",
         password: "private",
         password_confirmation: "private"}
   end
@@ -38,9 +39,15 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update user" do
+  test "should update user if current_password correct" do
     put :update, id: @user, user: @input_attributes
     assert_redirected_to users_path
+  end
+
+  test "shouldn't update user if current_password wrong" do
+    @input_attributes[:current_password] = "wrong"
+    put :update, id: @user, user: @input_attributes
+    assert_redirected_to edit_user_path @user
   end
 
   test "should destroy user" do
