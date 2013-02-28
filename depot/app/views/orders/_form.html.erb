@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :pay_type, t('.pay_type') %><br />
-    <%= f.select :pay_type, PaymentType.all.map(&:name), prompt: t('.pay_prompt_html') %>
+    <%= select :order, :pay_type, Hash[PaymentType.all.map{ |x| [t('.' + x.name.downcase.tr(' ','_')),x.name] }], prompt: t('.pay_prompt_html') %>
   </div>
   <div class="actions">
     <%= f.submit t('.submit') %>

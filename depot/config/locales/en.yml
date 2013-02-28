@@ -38,7 +38,11 @@ en:
       email:            "E-mail"
       pay_type:         "Pay with"
       pay_prompt_html:  "Select a payment method"
+      check:            "Check"
+      credit_card:      "Credit card"
+      purchase_order:   "Purchase order"
       submit:           "Place order"
+
   thanks:           "Thank you for your order"
 
 

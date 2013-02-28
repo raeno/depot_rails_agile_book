@@ -48,11 +48,14 @@ es:
     new:
       legend:       "Por favor, introduzca sus datos"
     form:
-      name:         "Nombre"
-      address:      "Direcci&oacute;n"
-      email:        "E-mail"
-      pay_type:     "Pagar con"
-      pay_prompt:   "Seleccione un m&eacute;todo de pago"
+      name:             "Nombre"
+      address:          "Direcci&oacute;n"
+      email:            "E-mail"
+      pay_type:         "Pagar con"
+      pay_prompt_html:       "Seleccione un m&eacute;todo de pago"
+      check:            "Cheque"
+      credit_card:      "Tarjeta de crédito"
+      purchase_order:   "Orden de compra"
       submit:       "Realizar Pedido"
       
   thanks:           "Gracias por su pedido"
