@@ -97,6 +97,9 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.2)
+    rvm (1.11.3.6)
+    rvm-capistrano (1.2.7)
+      capistrano (>= 2.0.0)
     sass (3.2.6)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -133,6 +136,8 @@ DEPENDENCIES
   jquery-rails
   mysql2
   rails (= 3.2.12)
+  rvm
+  rvm-capistrano
   sass-rails (~> 3.2.3)
   sqlite3
   therubyracer

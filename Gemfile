@@ -12,7 +12,8 @@ gem 'execjs'
 gem 'therubyracer'
 
 
-
+gem 'rvm'
+gem 'rvm-capistrano'
 
 # Gems used only for assets and not required
 # in production environments by default.

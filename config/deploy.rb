@@ -1,3 +1,7 @@
+require "bundler/capistrano"
+require 'rvm'
+require 'rvm/capistrano'
+
 set :domain, "www.megabookstore.com"
 set :application, "megabook"
 set :repository,  "ssh://git@bitbucket.org/raeno/rails_study.git"
@@ -41,13 +45,21 @@ namespace :deploy do
 
   desc 'reload the database with seed data'
   task :seed do
-    run "cd #{release_path}; rake db:seed RAILS_ENV=#{rails_env}"
+    run "cd #{current_path}; rake db:seed RAILS_ENV=#{rails_env}"
   end
 end
 
+
 after "deploy:update_code", :bundle_install
+after "deploy", "rvm:trust_rvmrc"
 
 desc 'install necessary prerequisites'
 task :bundle_install, :roles => :app do
   run "cd #{release_path} && bundle install"
+end
+
+namespace :rvm do
+  task :trust_rvmrc do
+    run "rvm rvmrc trust #{release_path}"
+  end
 end
